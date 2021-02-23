@@ -1,0 +1,7 @@
+<%-include('nav') %>
+<div id="userset" data-user="<%= JSON.stringify(user) %>"></div>
+
+<script type="module">
+  import { startWs } from "../js/wsload.js";
+  startWs();
+</script>

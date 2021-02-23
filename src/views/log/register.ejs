@@ -1,0 +1,50 @@
+<div class="container">
+  <form id="regisuser" action="/users/register" method="POST">
+    <div class="row">
+      <div class="col-25">
+        <label for="name"><%= i18n.__("username") %></label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="rname" required name="rname" class="form-control"
+        placeholder="<%= i18n.__("username") %>" value="<%= typeof name !=
+        'undefined' ? name : '' %>" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="email"><%= i18n.__("email") %></label>
+      </div>
+      <div class="col-75">
+        <input type="email" id="remail" required name="remail" placeholder="<%=
+        i18n.__("email") %>" value="<%= typeof email != 'undefined' ? email : ''
+        %>" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="password"><%= i18n.__("password") %></label>
+      </div>
+      <div class="col-75">
+        <input type="password" id="rpassword" required name="rpassword"
+        placeholder="<%= i18n.__("password") %>" value="<%= typeof password !=
+        'undefined' ? password : '' %>" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="password2"
+          ><%= i18n.__("confirm") %> <%= i18n.__("password") %></label
+        >
+      </div>
+      <div class="col-75">
+        <input type="password" id="password2" required name="password2"
+        placeholder="<%= i18n.__("confirm") %> <%= i18n.__("password") %>"
+        value="<%= typeof password2 != 'undefined' ? password2 : '' %>" />
+      </div>
+    </div>
+    <div class="row">
+      <br />
+      <input type="submit" value="<%= i18n.__("register") %>" />
+    </div>
+  </form>
+</div>

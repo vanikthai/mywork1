@@ -1,0 +1,49 @@
+<%-include('nav') %>
+<div id="userset" data-user="<%= JSON.stringify(user) %>"></div>
+<data-users id="users" users=""></data-users>
+<input
+  type="text"
+  id="myInput"
+  onkeyup="myFunction()"
+  placeholder="Search for names.."
+/>
+<table id="myTable">
+  <tr class="header">
+    <th style="width: 60%">Name</th>
+    <th style="width: 40%">Country</th>
+  </tr>
+</table>
+<script>
+  window.onload = async function () {
+    await import("../js/wsload.js")
+      .then((app) => app.startWs())
+      .catch((e) => console.log("error load wsload"));
+    // await import("../js/thames/users.js")
+    //   .then((appa) => appa.datausers())
+    //   .catch((e) => console.log("error load dada-users"));
+    await import("../js/localdb.js").then((app) =>
+      console.log(app.showalltIndexDb("users"))
+    );
+  };
+  function myFunction() {
+    // Declare variables
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+
+    // Loop through all table rows, and hide those who don't match the search query
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[0];
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+  }
+</script>

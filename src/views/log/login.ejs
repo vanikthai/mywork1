@@ -1,0 +1,26 @@
+<div class="container">
+  <form id="login" action="/users/login" method="POST">
+    <div class="row">
+      <div class="col-25">
+        <label for="email"><%= i18n.__("email") %></label>
+      </div>
+      <div class="col-75">
+        <input type="email" required id="email" name="email"
+        class="form-control" placeholder="<%= i18n.__("email") %>" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="password"><%= i18n.__("password") %></label>
+      </div>
+      <div class="col-75">
+        <input type="password" required id="password" name="password"
+        class="form-control" placeholder="<%= i18n.__("password") %>" />
+      </div>
+    </div>
+    <div class="row">
+      <br />
+      <input type="submit" value="<%= i18n.__("login") %>" />
+    </div>
+  </form>
+</div>
